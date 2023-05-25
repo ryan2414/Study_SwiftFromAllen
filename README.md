@@ -17,7 +17,7 @@
         - 함수의 파라미터는 기본적으로 CallbyValue
         - inout 키워드를 사용하여 주소값을 전달 가능(Call by Ref)
     - guard 문
-        '''
+       ```
         guard password.count >= 6 else {return false}
-        '''
+       ```
         

@@ -17,10 +17,33 @@
         - 함수의 파라미터는 기본적으로 CallbyValue
         - inout 키워드를 사용하여 주소값을 전달 가능(Call by Ref)
     - guard 문
-       ```
+        ```
         guard password.count >= 6 else {return false}
-       ```
+        ```
         - 예외처리에 사용
     - @어트리뷰트 키워드
         - @표시가 붙음, 속성, 1. 선언에 추가정보 제공, 2. 타입에 추가정보 제공
         - @discardableResult -> 함수의 결과값을 안 쓸 수도 있음 (_ = sayHello())
+    - 옵셔널 타입: 임시적인 타입, 포장지를 한겹 싼다는 느낌, 초기값이 없으면 nil로 자동 초기화
+    - nil: 값이 없음을 나타내는 키워드 (실제 값이 없음이 아님)
+    - 옵셔널 바인딩(if let 바인딩): 바인딩이 된다면, 특정 작업을 진행
+        ```
+        var str: String? = "Hello"
+        
+        if let s = str{
+            print(s)
+        }
+        ```
+    - guard let 바인딩
+        ```
+        guard let name = optionalName else {return}
+        ```
+    - Nil-Coalescing 연산자
+        ```
+        var serverName: String? = "홍길동"
+        var userName = serverName ?? "미인증사용자" //serverName이 nil이면 "미인증사용자" 저장
+        ```
+    - 옵셔널 체이닝
+    - IUO 타입
+    - 
+    

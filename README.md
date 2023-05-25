@@ -17,7 +17,10 @@
         - 함수의 파라미터는 기본적으로 CallbyValue
         - inout 키워드를 사용하여 주소값을 전달 가능(Call by Ref)
     - guard 문
-        ₩₩₩
+       ```
         guard password.count >= 6 else {return false}
-        ₩₩₩
-        
+       ```
+        - 예외처리에 사용
+    - @어트리뷰트 키워드
+        - @표시가 붙음, 속성, 1. 선언에 추가정보 제공, 2. 타입에 추가정보 제공
+        - @discardableResult -> 함수의 결과값을 안 쓸 수도 있음 (_ = sayHello())

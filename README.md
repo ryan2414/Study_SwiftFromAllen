@@ -61,5 +61,6 @@
     print(tuple) //(offset: 0, element: 10)... 
     }
     ```
-
+- Dictionary
+    - Dictionary의 키 값은 Hashable 해야함.
      

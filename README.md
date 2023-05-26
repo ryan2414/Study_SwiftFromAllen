@@ -46,5 +46,20 @@
         ```
     - 옵셔널 체이닝
     - IUO 타입
-    - 
     
+## 2023.05.26
+- Array
+    ```
+    // 1) 배열을 직접정렬하는 메서드  sort  (동사)
+    // 2) 정렬된 새로운 배열을 리턴  sorted (동사ing/동사ed)
+    arr.sort()   // 배열을 직접 정렬, 배열 자체를 정렬
+    arr.sorted() // 오름차순 정렬, 정렬된 배열을 리턴
+    
+    
+    // enumerated() ===> 열거된 것들을 Named 튜플 형태로 한개씩 전달
+    for tuple in nums.enumerated() {
+    print(tuple) //(offset: 0, element: 10)... 
+    }
+    ```
+
+     

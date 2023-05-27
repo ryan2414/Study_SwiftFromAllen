@@ -71,4 +71,25 @@
     var arr = [1,2,3,4,5]
     var subArr = arr[0...2] // 같은 메모리 공간 공유
     ```
+- Enum 열거형 
+    - 원시값(Raw Value)
+    ```
+    enum Alignment1: String {
+    case left
+    case center
+    case right
+    }
+    //string은 기본값을 입력 안하면 키와 값이 같아짐
+    let align = Alignment(rawValue: 0)    // 인스턴스 생성시 - 옵셔널타입으로 리턴 (실패가능)
+    let leftValue = Alignment.center.rawValue     // 접근연산자를 통해 원시값 자체에도 접근가능
+    ```
+    - 연관값(Associated Values): 구체적인 추가정보를 저장하기 위해 사용
+    ```
+    enum Computer {
+    case cpu(core: Int, ghz: Double)
+    case ram(Int, String)
+    case hardDisk(gb: Int)
+    }
+    // 개별케이스마다 저장할 형식을 따로 정의(자료형에 제한이 없음 / 튜플의 형태)
+    ```
      

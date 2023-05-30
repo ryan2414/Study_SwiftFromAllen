@@ -5,10 +5,10 @@
 ## 2023.05.30
 - Struct And Class
 - Properties
-        - 저장(Stored), 지연(Lazy) 저장 속성
-        - 계산 속성(Computed) - get; set;
-        - 타입(Type) 속성 - static
-        - 속성 감시자(Property Observers) - willSet/didSet 
+    - 저장(Stored), 지연(Lazy) 저장 속성
+    - 계산 속성(Computed) - get; set;
+    - 타입(Type) 속성 - static
+    - 속성 감시자(Property Observers) - willSet/didSet 
         
 ## 2023.05.28
 - Xcode 단축기

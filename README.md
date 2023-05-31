@@ -3,6 +3,9 @@
 링크: https://inf.run/53MU
 
 ## 2023.05.31
+- Any, AnyObject 
+    - AnyObject는 클래스 객체만 담을 수 있다. 
+    - 타입 캐스팅이 필요
 - is 연산자 / 업 캐스팅 as 연산자 (브릿징) / 다운 캐스팅 as? / as! 연산자
 - Struct And Class 생성자 / 소멸자 비교
     - 구조체: 지정 생성자, 실패가능 생성자

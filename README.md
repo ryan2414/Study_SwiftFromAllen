@@ -9,8 +9,7 @@
     - 상속과 관련하여 클래스가 생성자가 더 많음
 
 ## 2023.05.30
-- Struct And Class
-- Properties
+- Struct And Class Properties
     - 저장(Stored), 지연(Lazy) 저장 속성
     - 계산 속성(Computed) - get; set;
     - 타입(Type) 속성 - static

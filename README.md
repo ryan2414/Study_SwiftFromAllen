@@ -6,14 +6,21 @@
 - 튜플은 switch문과 자주 활용된다.
     - switch문 바인딩
     - where절
-    ```Swift
-    switch coordinate {
-    case let (x,y) where x == y :
-        print("좌표는 (\(x),\(y)) 입니다.")
-    default:
-        breake
-    }
-    ```
+        1. for문, while문, switch문 등에서 조건을 추가하여 나타낼 수 있다.
+        2. 프로토콜의 extension 같은 타입에도 조건을 추가 할 수 있다.
+        ```Swift
+        for i in 1...10 where i % 2 == 0 {
+            print(i)
+        }
+        ```
+        ```Swift
+        switch coordinate {
+        case let (x,y) where x == y :
+            print("좌표는 (\(x),\(y)) 입니다.")
+        default:
+            breake
+        }
+        ```
 
 ## 2023.06.04
 - 클로저 

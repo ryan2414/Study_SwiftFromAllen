@@ -3,24 +3,44 @@
 링크: https://inf.run/53MU
 
 ## 1차 스터디 준비
+- switch
+    - `case`를 연속 실행하려면 `fallthrough` 키워드를 사용해야 한다.
+    -  
 - 튜플은 switch문과 자주 활용된다.
-    - switch문 바인딩
-    - where절
+    - 튜블의 각 요소를 각각 상수/변수화 가능(바인딩)
+    - 튜플과 와일드 카드를 이용해서 switch문에서 여러개의 값을 동시에 확인할 수 있다.
+    ```Swift
+    func getPoint(somePoint:(Int,Int)){
+        switch somePoint{
+        case (0, 0):
+            print("\(somePoint) is at the origin")
+        case (_, 0):
+            print("\(somePoint) is on the x-axis")
+        case (0, _):
+            print("\(somePoint) is on the y-axis")
+        case (-2...2, -2...2):
+            print("\(somePoint) is inside the box")
+        default:
+            print("\(somePoint) is outside of the box")
+        }
+    }
+    ```
+    - where절을 추가하여 조건을 더욱 세분화 할 수 있다.
         1. for문, while문, switch문 등에서 조건을 추가하여 나타낼 수 있다.
         2. 프로토콜의 extension 같은 타입에도 조건을 추가 할 수 있다.
-        ```Swift
-        for i in 1...10 where i % 2 == 0 {
-            print(i)
-        }
-        ```
-        ```Swift
-        switch coordinate {
-        case let (x,y) where x == y :
-            print("좌표는 (\(x),\(y)) 입니다.")
-        default:
-            breake
-        }
-        ```
+    ```Swift
+    for i in 1...10 where i % 2 == 0 {
+        print(i)
+    }
+    ```
+    ```Swift
+    switch coordinate {
+    case let (x,y) where x == y :
+        print("좌표는 (\(x),\(y)) 입니다.")
+    default:
+        breake
+    }
+    ```
 
 ## 2023.06.04
 - 클로저 

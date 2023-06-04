@@ -10,6 +10,16 @@
     -  
 - 튜플은 switch문과 자주 활용된다.
     - 튜블의 각 요소를 각각 상수/변수화 가능(바인딩 = 다른 변수/상수의 새로운 식별자로 할당한다.)
+    ```Swift
+    var num = 6
+
+    switch num {
+    case let a:      // let a = num
+        print("숫자: \(a)")
+    default:
+        break
+    }
+    ```
     - 튜플과 와일드 카드를 이용해서 switch문에서 여러개의 값을 동시에 확인할 수 있다.
     ```Swift
     func getPoint(somePoint:(Int,Int)){

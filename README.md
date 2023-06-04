@@ -2,6 +2,18 @@
 인프런 엘렌 스위프트 강좌 공부 노트   
 링크: https://inf.run/53MU
 
+## 1차 스터디 준비
+- switch문 바인딩
+- where절
+```Swift
+switch coordinate {
+case let (x,y) where x == y :
+    print("좌표는 (\(x),\(y)) 입니다.")
+default:
+    breake
+}
+```
+
 ## 2023.06.04
 - 클로저 
     -  익명 함수

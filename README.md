@@ -2,6 +2,14 @@
 인프런 엘렌 스위프트 강좌 공부 노트   
 링크: https://inf.run/53MU
 
+## 2023.06.06
+- 스위프트 메모리 관리 모델
+- ARC(Automatic Reference Counting)
+- RC(참조 숫자)를 세는 것을 통해, 메모리 관리/ 컴파일시에 메모리 해제시점을 결정
+- retain() 할당 => release() 해제
+- 소유정책, 참조 카운팅
+- 
+
 ## 1차 스터디 준비
 - switch
     - `case`에 `break`를 추가하지 않아도 자동으로 `case` 마다 `break` 됩니다.

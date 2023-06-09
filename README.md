@@ -3,7 +3,7 @@
 링크: https://inf.run/53MU
 
 ## 2023.06.09
-- 비동기
+- 비동기(Async) - 기다리지 않음 vs 동기(Sync)
 - DispatchQueue(GDC - Grand Centeral DispatchQueue)
 - 물리적인 Thread를 여러개의 소프트웨어적인 Thread로 만들 수 있음 => Thread Pool(OS에서 관리)
 - 병렬(Parallel) - 물리적인 쓰레드 vs 동시성(Concurrency) - 소프트웨어적인 쓰레드

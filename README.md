@@ -4,9 +4,19 @@
 
 ## 2023.06.09
 - 비동기(Async) - 기다리지 않음 vs 동기(Sync)
+
 - DispatchQueue(GDC - Grand Centeral DispatchQueue)
+- DispatchQueue.main -> 1번 쓰레드, 메인쓰레드 == 메인큐
+- DispatchQueue.global -> 종류가 여러개, 기본설정: 동시, QoS 6개 
+- DispatchQueue(label:"...") -> 기본설정: 직렬, 커스텀 가능
+ 
 - 물리적인 Thread를 여러개의 소프트웨어적인 Thread로 만들 수 있음 => Thread Pool(OS에서 관리)
+
 - 병렬(Parallel) - 물리적인 쓰레드 vs 동시성(Concurrency) - 소프트웨어적인 쓰레드
+- 직렬(Serial) vs 동시(Concurrent)
+    - 직렬: 다른 한개의 쓰레드, 순서가 중요한 작업
+    - 동시: 다른 여러개의 쓰레드, 독립적이지만 유사한 여러개의 작업
+
 
 ## 2023.06.08
 - 에러 처리 

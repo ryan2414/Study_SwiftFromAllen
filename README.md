@@ -2,6 +2,192 @@
 인프런 엘렌 스위프트 강좌 공부 노트   
 링크: https://inf.run/53MU
 
+## 2023.06.13 ZOOM 수업
+- 
+- nil
+    - 메모리에 값이 없어서 앱이 꺼지는 상황을 방어하기 위해 애플에서 만든 임시 변수 
+    - 
+- Void -> 비어있는 튜플
+
+## 2023.06.09
+- 비동기(Async) - 기다리지 않음 vs 동기(Sync)
+
+- DispatchQueue(GDC - Grand Centeral DispatchQueue)
+- DispatchQueue.main -> 1번 쓰레드, 메인쓰레드 == 메인큐
+- DispatchQueue.global -> 종류가 여러개, 기본설정: 동시, QoS 6개 
+- DispatchQueue(label:"...") -> 기본설정: 직렬, 커스텀 가능
+ 
+- 물리적인 Thread를 여러개의 소프트웨어적인 Thread로 만들 수 있음 => Thread Pool(OS에서 관리)
+
+- 병렬(Parallel) - 물리적인 쓰레드 vs 동시성(Concurrency) - 소프트웨어적인 쓰레드
+- 직렬(Serial) vs 동시(Concurrent)
+    - 직렬: 다른 한개의 쓰레드, 순서가 중요한 작업
+    - 동시: 다른 여러개의 쓰레드, 독립적이지만 유사한 여러개의 작업
+
+- 경쟁상황(Race Condition) 
+    - 여러 쓰레드에서 하나의 메모리에 동시접근 하는 문제
+- 교착상태(Deadlocks)
+    - 베타적인 메모리사용으로 일이 진행이 안되는 문제 
+- 
+
+
+## 2023.06.08
+- 에러 처리 
+    - 에러 정의
+    - 에러가 발생할 수 있는 함수에 대한 정의
+    - 에러가 발생할 수 있는 함수의 처리
+- 에러를 처리하는 방법 - try / try? / try!
+- defer 문
+    - 스코프 내의 동작의 마무리를 특정하기 위해서 사용
+    - 등록한 역순으로 실행
+    - 일반적으로 하나의 디퍼문만 사용하는 것이 좋음
+- 네트워크 통신의 이해 
+    - query
+    - RestAPI
+    - iOS 데이터 요청의 4단계
+        1. URL
+        2. URLSession
+        3. dataTask
+        4. resume(시작)
+
+## 2023.06.07 Zoom 수업
+- 타입 변환 vs 타입 캐스팅
+- 타입애일리어스 -> 타입을 길게 쓰기 불편할 경우(like 별칭) 
+- 변수에 담기는 것은 "데이터"이다. 
+- 변수의 사용 
+    - 읽기(get) 
+        - 메모리에 어떤 값이 있는지 얻어 오는것 / 
+    - 쓰기(set)
+        - 메모리에 값을 할당하는 것
+- 프로그래밍의 기본 원리
+    - 순차 / 조건 / 반복 + 데이터
+    - 순차 - 개발자가 정한 규칙에 따라 순차적으로 실행된다. 
+    - 조건 - 조건에 따라 어떤 동작을 할지 말지의 여부
+    - 반복
+- 튜플 
+    - 여러개의 데이터를 하나의 변수에 담는 것
+    - 간단한 경우 사용
+
+## 2023.06.07 - 흠냐 어렵다
+- 클로저와 메모리 관리
+- 캡쳐현상 & 캡쳐리스트
+- 일반적인 클로저 사용   
+    - 객체 내에서의 사용, self 키워드
+    - `self` 키워드 사용 
+
+- 강한 참조 사이클(객체가 서로를 참조) -> 메모리 누수 가능 
+- 해결방안
+    - 약한 참조
+    ```Swift
+    weak var pet:Dog?
+    ```
+    - 비소유 참조
+        - 비소유 참조의 경우, 참조하고 있던 인스턴스가 사라지면, nil로 초기화 되지 않음 => 에러 발생 
+        - 에러가 발생하지 않게 하려면, nil로 재설정 필요
+    ```Swift
+    unowned var owner: Person1?
+    ```
+    
+## 2023.06.06
+- 스위프트 메모리 관리 모델
+- ARC(Automatic Reference Counting)
+- RC(참조 숫자)를 세는 것을 통해, 메모리 관리/ 컴파일시에 메모리 해제시점을 결정
+- retain() 할당 => release() 해제
+- 소유정책, 참조 카운팅
+
+## 1차 스터디 준비
+- switch
+    - `case`에 `break`를 추가하지 않아도 자동으로 `case` 마다 `break` 됩니다.
+    - `case`를 연속 실행하려면 `fallthrough` 키워드를 사용해야 한다.(`break` 되는 것을 무시할 수 있다.)
+    - 매우 한정적인 값(`enum`, `bool`등)이 아닌 한 `default` 구문은 반드시 작성해야 한다.
+- 튜플은 switch문과 자주 활용된다.
+    - 튜플의 각 요소를 각각 상수/변수화 가능(바인딩 = 다른 변수/상수의 새로운 식별자로 할당한다.)
+    ```Swift
+    var num = 6
+
+    switch num {
+    case let a:      // let a = num
+        print("숫자: \(a)")
+    default:
+        break
+    }
+    ```
+    - 튜플과 와일드 카드를 이용해서 switch문에서 여러개의 값을 동시에 확인할 수 있다.
+    ```Swift
+    func getPoint(somePoint:(Int,Int)){
+        switch somePoint{
+        case (0, 0):
+            print("\(somePoint) is at the origin")
+        case (_, 0):
+            print("\(somePoint) is on the x-axis")
+        case (0, _):
+            print("\(somePoint) is on the y-axis")
+        case (-2...2, -2...2):
+            print("\(somePoint) is inside the box")
+        default:
+            print("\(somePoint) is outside of the box")
+        }
+    }
+    ```
+    - where절을 추가하여 조건을 더욱 세분화 할 수 있다.
+        1. for문, while문, switch문 등에서 조건을 추가하여 나타낼 수 있다.
+        2. 프로토콜의 extension 같은 타입에도 조건을 추가 할 수 있다.
+    ```Swift
+    for i in 1...10 where i % 2 == 0 {
+        print(i)
+    }
+    ```
+    ```Swift
+    switch coordinate {
+    case let (x,y) where x == y :
+        print("좌표는 (\(x),\(y)) 입니다.")
+    default:
+        breake
+    }
+    ```
+
+## 2023.06.04
+- 클로저 
+    -  익명 함수
+    ```Swift
+    {()->Int in
+        return...
+    }
+    ```
+    -  함수는 1급 객체
+        1. 함수를 변수에 할당 할 수 있다.
+        2. 함수를 파라미터로 전달이 가능하다.
+        3. (함수에서) 함수를 리턴할 수 있다. 
+- self vs Self (=> 타입을 선언하는 위치에서 사용, 타입 속성/메서드에 지칭, 프로토콜에서 채택하려는 타입을 지칭 가능)
+- 중첩 타입
+- 메서드 디스패치
+
+## 2023.06.01
+- Protocols
+
+## 2023.05.31
+- Extensions
+    - 확장의 장점:
+    - 원본 소스 코드에 대한 액세스 권한이없는 유형을 확장하는 기능이 포함 (소급-모델링 retroactive modeling)
+    - 예) Int, String, Double 등 애플이 미리 만들어 놓은 타입에 확장도 가능
+    - 메서드 형태만 가능
+    - 스위프트에서는 확장에서 구현한 메서드에 대한 재정의가 불가능 하지만 @objc 붙이면 가능
+        - 스위프트와 오브젝트씨의 매서드 구현 로직이 좀 다름  
+- Any, AnyObject 
+    - AnyObject는 클래스 객체만 담을 수 있다. 
+    - 타입 캐스팅이 필요
+- is 연산자 / 업 캐스팅 as 연산자 (브릿징) / 다운 캐스팅 as? / as! 연산자
+- Struct And Class 생성자 / 소멸자 비교
+    - 구조체: 지정 생성자, 실패가능 생성자
+    - 클래스: 지정 생성자, 편의 생성자, 필수 생성자, 실패가능 생성자, 소멸자  
+    - 상속과 관련하여 클래스가 생성자가 더 많음
+
+## 2023.05.30
+- Struct And Class Properties
+    - 저장(Stored), 지연(Lazy) 저장 속성
+    - 계산 속성(Computed) - get; set;
+    - 타입(Type) 속성 - static
+    - 속성 감시자(Property Observers) - willSet/didSet 
         
 ## 2023.05.29
 - ⭐️ Class와 Struct의 가장 큰 차이는 메모리 저장 방식의 차이 ⭐️
@@ -83,7 +269,7 @@
 - 이전에 있던 폴더와 분리 
 - 공부하면서 새롭게 알게된 점 Note 예정
 - 배운것
-    - 함수의 표기법, 함수의 타입표기 -> 델리데이트 함수? 
+    - 함수의 표기법, 함수의 타입표기 
     - 제어전송문
         - fallthrough: switch 문에서 사용, 아래 문장도 실행 
     - 함수 실행의 메모리 구조

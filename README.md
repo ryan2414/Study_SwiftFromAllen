@@ -2,6 +2,91 @@
 인프런 엘렌 스위프트 강좌 공부 노트   
 링크: https://inf.run/53MU
 
+
+## 2023.07.11Zoom 미팅
+- 프로토콜(인터페이스) (like 자격증)
+    - 객체지향프로그래핑의 단점(상속의 단점)을 보완해주는 도구
+    - 실제 객체설계의 5대 원칙 SOLID
+    - 자격증 자체가 “타입”이 되기 때문에, 클래스의 상속 구조를 벗어난 활동 가능
+    - 클래스 뿐만아니라 “구조체”에서도 자격증 따는 것 가능 → SwiftUI에서 많이 활용됨
+    - 델리게이트 패턴에서 활용됨
+    - 프로토콜과 프로토콜 확장의 메모리 구조
+        - 프로토콜의 확장은 코드의 중복구현을 피하기 위함(default 값 제공)
+        - 데이터 영역(프로토콜 Witness 테이블) - 프로토콜의 함수 시작 주소가 다름
+        - 우선순위 1 - 직접구현
+        - 우선순위 2 - 기본구현 제공
+        - 채택을 할때마다 Witness 테이블을 새로 만듬(주소가 달라질 수 있음)
+- 클로저에 대한 이해
+    - 콜백함수가 뭘까?
+        1. 다른 함수의 인수로 사용되는 함수
+        2. 어떤 이벤트 후, 호출되어지는 함수
+- 클로저(익명함수)의 형태 - 함수에서 클로저로의 변형
+    - 함수와 클로저는 동일하다 / 형태만 다를 뿐이다.
+    
+    ```swift
+    // nomal func
+    func add(a: Int, b: Int) -> Int {
+        let result = a + b
+        return result
+    }
+    
+    // 클로저
+    {(a: Int, b: Int) -> Int in
+        let result = a + b
+        return result
+    }
+    
+    // return에 대한 표기를 생략하고 많이 사용
+    {(a: Int, b: Int) in
+        let result = a + b
+        return result
+    }
+    
+    // input type 생략 가능
+    {(a, b) in
+        let result = a + b
+        return result
+    }
+    ```
+    
+- 클로저의 문법 최적화
+    
+    ```swift
+    
+    doSomething(callback: () -> ())
+    
+    //후행(Trailling) 클로저
+    // input, output이 Void인 경우 생략 가능
+    // 마지막 파라미터가 callback함수인 경우
+    
+    doSomething { 
+        print("안녕하세요2222")
+    }
+    
+    doSomething4(num1: 3, num2: 4) { num in
+    
+    }
+    
+    // 멀티플 후행 클로저
+    
+    // 2) 파라미터 및 생략 등의 간소화
+    let closureType1: (Int) -> (Bool) = { (num: Int) -> Bool in 
+        let result = num % 2 == 0
+        return result
+    }
+    
+    let closureType1: (Int) -> (Bool) = { num in 
+        return num % 2 == 0
+    }
+    
+    // 함수가 1줄인 경우 return 생략 가능 
+    let closureType1: (Int) -> (Bool) = {  
+        $0 % 2 == 0
+    }
+    ```
+
+
+
 ## 2023.06.27 Zoom 수업
 - Class vs Struct
     - 인스턴스 생성 과정에서 클래스가 더 느리다
